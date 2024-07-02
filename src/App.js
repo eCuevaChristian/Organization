@@ -5,11 +5,20 @@ import Formulario from './componentes/Formulario/Formulario';
 import MiOrg from './componentes/MiOrg/MiOrg';
 import Equipo from './componentes/Equipo/Equipo';
 import Colaborador from './componentes/Colaborador/Colaborador';
+import Footer from './componentes/Footer';
 
 function App() {
 
   const [mostrarFormulario,actualizarMostrar] = useState (true);
-  const [colaboradores, actualizarColaboradores] = useState([]);
+  const [colaboradores, actualizarColaboradores] = useState([
+    {
+        nombre: "Christian Cueva",
+        puesto: "Desarrollador en Proceso",
+        foto: "https://github.com/eCuevaChristian.png",
+        equipo: "Front End"
+
+    }
+  ]);
   
   const cambiarMostrar = () => {
     actualizarMostrar(!mostrarFormulario)
@@ -86,6 +95,8 @@ function App() {
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo===equipo.titulo)}/>
         } )
       }
+
+      <Footer/>
 
     </div>
   );
