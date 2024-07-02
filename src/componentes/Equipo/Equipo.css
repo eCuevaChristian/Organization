@@ -1,7 +1,6 @@
 .equipo{
     width: 100%;
     padding: 32px;
-    background-color: #D9F7E9;
     box-sizing: border-box;
     text-align: center;
     font-size: 32px;
@@ -10,7 +9,13 @@
 .equipo h3{
     font-weight: 400;
     color: #212121;
-    border-bottom: 4px solid #57C278 ;
+    border-bottom: 4px solid ;
     display: inline-block;
     padding-bottom: 8px;
+}
+
+.colaboradores{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
