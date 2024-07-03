@@ -1,4 +1,7 @@
 import "./Footer.css";
+import { SlActionRedo } from "react-icons/sl";
+import { SlActionUndo } from "react-icons/sl";
+
 const Footer = ()=>{
     return <footer className="footer" style={{backgroundImage:"url(/img/Footer.png)"}}>
         <div className="redes">
@@ -12,8 +15,15 @@ const Footer = ()=>{
             <img src="/img/instagram.png" alt="instagram" />
         </a>
         </div>
-        <img src='/img/Logo.png' alt='org' /> 
-        <strong>Desarrollado por Christian Cueva</strong>
+        <span >
+        Desarrollado por 
+        <a className="desarrollado" href="https://github.com/eCuevaChristian">
+        Christian Cueva
+        </a> 
+        </span>
+        
+        
+        <img className="logo" src='/img/Logo.png' alt='org' /> 
     </footer>
 }
 export default Footer;
