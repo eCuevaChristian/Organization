@@ -12,36 +12,46 @@ function App() {
 
   const [mostrarFormulario,actualizarMostrar] = useState (true);
   const [colaboradores, actualizarColaboradores] = useState([
-    {
+    {   
+        id: uuid(),
         nombre: "Christian Cueva",
         puesto: "Desarrollador en Proceso",
         foto: "https://github.com/eCuevaChristian.png",
         equipo: "Front End"
     },
     {
+      id: uuid(),
       equipo: "Front End",
       foto: "https://github.com/harlandlohora.png",
       nombre: "Harland Lohora",
       puesto: "Instructor"
     },
     {
+      id: uuid(),
       equipo: "Programación",
       foto: "https://github.com/genesysrm.png",
       nombre: "Genesys Rondon",
       puesto: "Desarrolladora de software e instructora"
     },
-    
     {
+      id: uuid(),
+      equipo: "Innovación y Gestión",
+      foto: "https://github.com/JoseDarioGonzalezCha.png",
+      nombre: "Jose Gonzalez",
+      puesto: "Dev FullStack"
+    },
+    {
+      id: uuid(),
       equipo: "Programación",
       foto: "https://github.com/christianpva.png",
       nombre: "Christian Velasco",
       puesto: "Head de Alura e Instructor"
     },
     {
-      equipo: "Innovación y Gestión",
-      foto: "https://github.com/JoseDarioGonzalezCha.png",
-      nombre: "Jose Gonzalez",
-      puesto: "Dev FullStack"
+      equipo: "UX y Diseño",
+      foto: "https://github.com/JeanmarieAluraLatam.png",
+      nombre: "Jeanmarie Quijada",
+      puesto: "Instructora en Alura Latam"
     }
   ]);
 
@@ -49,14 +59,14 @@ function App() {
     {
       id: uuid(),
       titulo : "Programación",
-      colorPrimario: "#57C278 ",
+      colorPrimario: "#57C278",
       colorSecundario: "#D9F7E9"
     },
 
     {
       id: uuid(),
       titulo : "Front End",
-      colorPrimario: "#82CFFA ",
+      colorPrimario: "#82CFFA",
       colorSecundario: "#E8F8FF"
     },
     
@@ -77,7 +87,7 @@ function App() {
     {
       id: uuid(),
       titulo : "UX y Diseño",
-      colorPrimario: "#DB6EBF ",
+      colorPrimario: "#DB6EBF",
       colorSecundario: "#FAE9F5"
     },
 
@@ -90,7 +100,7 @@ function App() {
 
     {
       id: uuid(),
-      titulo : "Innovación y  Gestión",
+      titulo : "Innovación y Gestión",
       colorPrimario: "#FF8A29",
       colorSecundario: "#FFEEDF"
     },
@@ -108,21 +118,29 @@ function App() {
   } 
 
   //Eliminar Colaborador
-  const eliminarColaborador = () => {
-    console.log("Eliminar Colaborador")
+  const eliminarColaborador = (id) => {
+    console.log("Eliminar Colaborador", id)
+    const nuevosColaboradores = colaboradores.filter((colaborador) => colaborador.id !== id )
+    actualizarColaboradores(nuevosColaboradores)
   }
 
   //Actualizar Color equipo 
-  const actualizarColor = (color, titulo) => {
-    console.log("Actualizar:" , color, titulo)
+  const actualizarColor = (color, id) => {
+    console.log("Actualizar:" , color, id)
     const equiposActualizados = equipos.map((equipo) => {
-      if(equipo.titulo===titulo){
+      if(equipo.id===id){
         equipo.colorPrimario=color
       }
       return equipo
     })
 
     actualizarEquipos(equiposActualizados)
+  }
+
+  //crear equipo
+  const crearEquipo = (nuevoEquipo) => {
+    console.log(nuevoEquipo)
+    actualizarEquipos([...equipos, {...nuevoEquipo,id: uuid()}])
   }
 
   return (
@@ -132,6 +150,7 @@ function App() {
       {mostrarFormulario && <Formulario 
       equipos={equipos.map((equipo) => equipo.titulo)}
       registrarColaborador={registrarColaborador}
+      crearEquipo={crearEquipo}
       />}
       
       <MiOrg  cambiarMostrar={cambiarMostrar}/>
