@@ -2,7 +2,7 @@ import "./Header.css"
 
 function Header(){
     return <header className="header">
-        <img src="/public/img/header.png" alt="encabezado de Header ORG" />
+        <img src="/public/img/Header.png" alt="encabezado de Header ORG" />
     </header>
 
 }
