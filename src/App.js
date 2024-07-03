@@ -16,7 +16,31 @@ function App() {
         puesto: "Desarrollador en Proceso",
         foto: "https://github.com/eCuevaChristian.png",
         equipo: "Front End"
-
+    },
+    {
+      equipo: "Front End",
+      foto: "https://github.com/harlandlohora.png",
+      nombre: "Harland Lohora",
+      puesto: "Instructor"
+    },
+    {
+      equipo: "Programación",
+      foto: "https://github.com/genesysrm.png",
+      nombre: "Genesys Rondon",
+      puesto: "Desarrolladora de software e instructora"
+    },
+    
+    {
+      equipo: "Programación",
+      foto: "https://github.com/christianpva.png",
+      nombre: "Christian Velasco",
+      puesto: "Head de Alura e Instructor"
+    },
+    {
+      equipo: "Innovación y Gestión",
+      foto: "https://github.com/JoseDarioGonzalezCha.png",
+      nombre: "Jose Gonzalez",
+      puesto: "Dev FullStack"
     }
   ]);
   
@@ -29,6 +53,11 @@ function App() {
     console.log("Nuevo Colaborador", colaborador)
     actualizarColaboradores([...colaboradores,colaborador])
   } 
+
+  //Eliminar Colaborador
+  const eliminarColaborador = () => {
+    console.log("Eliminar Colaborador")
+  }
 
   //lista de equipos
   const equipos = [
@@ -88,12 +117,13 @@ function App() {
       <MiOrg  cambiarMostrar={cambiarMostrar}/>
       
       {
-        equipos.map( (equipo)=>{
-          return <Equipo 
+        equipos.map( (equipo)=><Equipo 
           datos={equipo}  
           key={equipo.titulo}
-          colaboradores={colaboradores.filter(colaborador => colaborador.equipo===equipo.titulo)}/>
-        } )
+          colaboradores={colaboradores.filter(colaborador => colaborador.equipo===equipo.titulo)}
+          eliminarColaborador={eliminarColaborador}
+          />
+        )
       }
 
       <Footer/>
