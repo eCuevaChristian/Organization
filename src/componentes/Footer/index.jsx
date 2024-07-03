@@ -1,6 +1,4 @@
 import "./Footer.css";
-import { SlActionRedo } from "react-icons/sl";
-import { SlActionUndo } from "react-icons/sl";
 
 const Footer = ()=>{
     return <footer className="footer" style={{backgroundImage:"url(/img/Footer.png)"}}>
@@ -21,8 +19,6 @@ const Footer = ()=>{
         Christian Cueva
         </a> 
         </span>
-        
-        
         <img className="logo" src='/img/Logo.png' alt='org' /> 
     </footer>
 }
